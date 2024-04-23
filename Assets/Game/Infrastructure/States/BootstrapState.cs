@@ -11,12 +11,12 @@ namespace Game.Infrastructure.States
         
         public void Enter()
         {
-            
+            //TODO: async services initialization
+            _stateMachine.Enter<LoadLevelState>();
         }
 
         public void Exit()
         {
-            
         }
     }
 }

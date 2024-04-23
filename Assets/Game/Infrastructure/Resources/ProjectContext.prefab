@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3202816342347041535}
   - {fileID: 8194343440520072046}
+  - {fileID: 3202816342347041535}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5464513640421324218
@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8194343440520072046}
   - component: {fileID: 7388987480459070949}
+  - component: {fileID: 1454462854132954959}
   m_Layer: 0
   m_Name: Infrastructure
   m_TagString: Untagged
@@ -106,6 +107,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 152da45e6ef64963b1588c49183d6b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coroutinePerformer: {fileID: 1454462854132954959}
+--- !u!114 &1454462854132954959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115874463967101989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f98f47a4304a30b89abf694487959c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7065649183340655552

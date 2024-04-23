@@ -8,8 +8,8 @@ namespace Game.Infrastructure.Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle().NonLazy();
-
             Container.Bind<BootstrapState>().AsSingle().NonLazy();
+            Container.Bind<LoadLevelState>().AsSingle().NonLazy();
         }
     }
 }
