@@ -1,7 +1,6 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Game.Infrastructure.Factories;
 using Game.Infrastructure.Services.Logger;
 using Zenject;
 
@@ -12,9 +11,11 @@ namespace Game.Infrastructure.States
         private IDictionary<Type, IState> _states;
         private IState _currentState;
         private readonly ILoggerService _logger;
+        private StateFactory _factory;
 
-        public GameStateMachine(ILoggerService logger)
+        public GameStateMachine(StateFactory factory, ILoggerService logger)
         {
+            _factory = factory;
             _logger = logger;
         }
         
@@ -22,7 +23,8 @@ namespace Game.Infrastructure.States
         {
             _states = new Dictionary<Type, IState>()
             {
-                [typeof(BootstrapState)] = new BootstrapState(this),
+                [typeof(BootstrapState)] = _factory.Create<BootstrapState>(),
+                [typeof(LoadLevelState)] = _factory.Create<LoadLevelState>(),
             };
             Enter<BootstrapState>();
         }
