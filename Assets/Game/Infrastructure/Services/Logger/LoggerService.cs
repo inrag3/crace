@@ -6,7 +6,8 @@ namespace Game.Infrastructure.Services.Logger
     {
         public void Log(string message, object sender = null)
         {
-            Debug.Log($"$<b><i>{sender ?? this}</i></b> {message}");
+            sender ??= this;
+            Debug.Log($"<b><i>{sender.GetType().Name}:</i></b> {message}");
         }
     }
 }

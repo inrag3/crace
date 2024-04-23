@@ -2,19 +2,20 @@
 
 using System;
 using System.Collections.Generic;
+using Game.Infrastructure.Services.Logger;
 using Zenject;
 
 namespace Game.Infrastructure.States
 {
     public class GameStateMachine : IInitializable
     {
-        
         private IDictionary<Type, IState> _states;
         private IState _currentState;
+        private readonly ILoggerService _logger;
 
-        public GameStateMachine()
+        public GameStateMachine(ILoggerService logger)
         {
-            
+            _logger = logger;
         }
         
         public void Initialize()
@@ -31,7 +32,10 @@ namespace Game.Infrastructure.States
         {
             _currentState?.Exit();
             _currentState = _states[typeof(T)];
-            _currentState?.Enter();
+            
+            _logger.Log($"{_currentState.GetType().Name} entered", this);
+            
+            _currentState.Enter();
         }
 
 
