@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Game.Infrastructure.States
 {
-    public class GameStateMachine : IInitializable
+    public class GameStateMachine : IStateMachine, IInitializable
     {
         private IDictionary<Type, IState> _states;
         private IState _currentState;
@@ -18,13 +18,12 @@ namespace Game.Infrastructure.States
             _logger = logger;
         }
         
-        public void Initialize()
+        public void Initialize() //Zenject analog of Monobehavior:Start
         {
             _states = new Dictionary<Type, IState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this),
             };
-            
             Enter<BootstrapState>();
         }
 
@@ -36,11 +35,6 @@ namespace Game.Infrastructure.States
             _logger.Log($"{_currentState.GetType().Name} entered", this);
             
             _currentState.Enter();
-        }
-
-
-        public void Exit<T>() where T : IState
-        {
         }
     }
 }

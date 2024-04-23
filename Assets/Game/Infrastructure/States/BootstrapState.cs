@@ -2,9 +2,9 @@ namespace Game.Infrastructure.States
 {
     public class BootstrapState : IState
     {
-        private readonly GameStateMachine _stateMachine;
+        private readonly IStateMachine _stateMachine;
 
-        public BootstrapState(GameStateMachine stateMachine)
+        public BootstrapState(IStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
         }
