@@ -1,5 +1,4 @@
-﻿using System;
-using Game.Infrastructure.Factories;
+﻿using Game.Infrastructure.Factories;
 using Game.Infrastructure.Services.CoroutinePerformer;
 using Game.Infrastructure.Services.Logger;
 using Game.Infrastructure.Services.SceneLoader;
@@ -11,7 +10,6 @@ namespace Game.Infrastructure.Installers
     public class InfrastructureInstaller : MonoInstaller
     {
         [SerializeField] private CoroutinePerformer _coroutinePerformer;
-
         private void OnValidate()
         {
             _coroutinePerformer ??= GetComponent<CoroutinePerformer>();
@@ -27,7 +25,6 @@ namespace Game.Infrastructure.Installers
         private void BindServices()
         {
             Container.Bind<ILoggerService>().To<LoggerService>().AsSingle().NonLazy();
-
             Container.Bind<ICoroutinePerformer>().FromInstance(_coroutinePerformer).AsSingle().NonLazy();
         }
 

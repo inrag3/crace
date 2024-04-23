@@ -11,7 +11,7 @@ namespace Game.Infrastructure.States
         private IDictionary<Type, IState> _states;
         private IState _currentState;
         private readonly ILoggerService _logger;
-        private StateFactory _factory;
+        private readonly StateFactory _factory;
 
         public GameStateMachine(StateFactory factory, ILoggerService logger)
         {
@@ -25,6 +25,7 @@ namespace Game.Infrastructure.States
             {
                 [typeof(BootstrapState)] = _factory.Create<BootstrapState>(),
                 [typeof(LoadLevelState)] = _factory.Create<LoadLevelState>(),
+                [typeof(GameloopState)] = _factory.Create<GameloopState>(),
             };
             Enter<BootstrapState>();
         }

@@ -25,7 +25,6 @@ namespace Game.Infrastructure.States
         
         public void Exit()
         {
-            
         }
     }
 }

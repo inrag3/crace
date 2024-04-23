@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using Game.Infrastructure.Services.CoroutinePerformer;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Game.Infrastructure.Services.SceneLoader
@@ -14,9 +13,9 @@ namespace Game.Infrastructure.Services.SceneLoader
         {
             _performer = performer;
         }
-        
+
         public void Load(Scene scene, Action onLoaded = null) =>
-            _performer.StartPerform(Start(scene));
+            _performer.StartPerform(Start(scene, onLoaded));
 
         private IEnumerator Start(Scene scene, Action onLoaded = null)
         {
@@ -24,6 +23,6 @@ namespace Game.Infrastructure.Services.SceneLoader
             while (!nextScene.isDone)
                 yield return null;
             onLoaded?.Invoke();
-        }  
+        }
     }
 }
