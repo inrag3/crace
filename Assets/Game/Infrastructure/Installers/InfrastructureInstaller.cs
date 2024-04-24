@@ -41,7 +41,7 @@ namespace Game.Infrastructure.Installers
 
         private void BindSceneLoader()
         {
-            Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
+            Container.Bind<ISceneLoader>().To<AsyncSceneLoader>().AsSingle();
         }
     }
 }

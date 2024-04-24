@@ -45,9 +45,9 @@ namespace Game.Infrastructure.AssetManagement
             return await handle.Task;
         }
 
-        public async Task<SceneInstance> LoadScene(Scene scene)
+        public async Task<SceneInstance> LoadScene(Scene name)
         {
-            var handle = Addressables.LoadSceneAsync(scene.ToString());
+            var handle = Addressables.LoadSceneAsync(name.ToString());
             return await handle.Task;
         }
         public void Dispose() => Release();

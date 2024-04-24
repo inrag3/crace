@@ -5,17 +5,17 @@ namespace Game.Infrastructure.States
     public class LoadLevelState : IState
     {
         private readonly IStateMachine _stateMachine;
-        private readonly ISceneLoader _loader;
+        private readonly ISceneLoader _sceneLoader;
 
-        public LoadLevelState(IStateMachine stateMachine, ISceneLoader loader)
+        public LoadLevelState(IStateMachine stateMachine, ISceneLoader sceneLoader)
         {
             _stateMachine = stateMachine;
-            _loader = loader;
+            _sceneLoader = sceneLoader;
         }
         
-        public void Enter()
+        public async void Enter()
         {
-            _loader.Load(Scene.Main, OnLoaded);
+            await _sceneLoader.Load(Scene.Core, OnLoaded);
         }
 
         private void OnLoaded()
