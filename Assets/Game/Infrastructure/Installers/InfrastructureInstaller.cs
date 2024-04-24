@@ -1,4 +1,5 @@
-﻿using Game.Infrastructure.Factories;
+﻿using Game.Infrastructure.AssetManagement;
+using Game.Infrastructure.Factories;
 using Game.Infrastructure.Services.CoroutinePerformer;
 using Game.Infrastructure.Services.Logger;
 using Game.Infrastructure.Services.SceneLoader;
@@ -17,11 +18,16 @@ namespace Game.Infrastructure.Installers
 
         public override void InstallBindings()
         {
+            BindAssetProvider();
             BindServices();
             BindFactories();
             BindSceneLoader();
         }
 
+        private void BindAssetProvider()
+        {
+            Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle().NonLazy();
+        }
         private void BindServices()
         {
             Container.Bind<ILoggerService>().To<LoggerService>().AsSingle().NonLazy();
