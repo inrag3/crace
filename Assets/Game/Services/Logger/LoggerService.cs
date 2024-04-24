@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Infrastructure.Services.Logger
+namespace Game.Services.Logger
 {
     public class LoggerService : ILoggerService
     {

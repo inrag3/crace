@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.Infrastructure.Factories;
-using Game.Infrastructure.Services.Logger;
+using Game.Services.Logger;
 using Zenject;
 
 namespace Game.Infrastructure.States

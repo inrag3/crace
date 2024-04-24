@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Game.Infrastructure.Services.Logger;
-using Game.Infrastructure.Services.SceneLoader;
+using Game.Services.Logger;
+using Game.Services.SceneLoader;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;

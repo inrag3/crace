@@ -1,4 +1,4 @@
-namespace Game.Infrastructure.Services.SceneLoader
+namespace Game.Services.SceneLoader
 {
     public enum Scene
     {

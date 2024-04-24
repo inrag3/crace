@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-namespace Game.Infrastructure.Services.SceneLoader
+namespace Game.Services.SceneLoader
 {
     public interface ISceneLoader
     {

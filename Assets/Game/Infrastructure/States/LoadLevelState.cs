@@ -1,4 +1,4 @@
-using Game.Infrastructure.Services.SceneLoader;
+using Game.Services.SceneLoader;
 
 namespace Game.Infrastructure.States
 {

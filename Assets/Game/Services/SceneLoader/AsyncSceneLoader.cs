@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using ISceneProvider = Game.Infrastructure.AssetManagement.ISceneProvider;
 
-namespace Game.Infrastructure.Services.SceneLoader
+namespace Game.Services.SceneLoader
 {
     public class AsyncSceneLoader : ISceneLoader
     {

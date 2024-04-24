@@ -1,4 +1,4 @@
-namespace Game.Infrastructure.Services.Logger
+namespace Game.Services.Logger
 {
     public interface ILoggerService
     {

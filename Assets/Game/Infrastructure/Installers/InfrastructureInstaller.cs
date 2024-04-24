@@ -1,8 +1,8 @@
 ﻿using Game.Infrastructure.AssetManagement;
 using Game.Infrastructure.Factories;
-using Game.Infrastructure.Services.CoroutinePerformer;
-using Game.Infrastructure.Services.Logger;
-using Game.Infrastructure.Services.SceneLoader;
+using Game.Services.CoroutinePerformer;
+using Game.Services.Logger;
+using Game.Services.SceneLoader;
 using UnityEngine;
 using Zenject;
 
