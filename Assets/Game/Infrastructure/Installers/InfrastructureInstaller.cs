@@ -1,6 +1,7 @@
 ﻿using Game.Infrastructure.AssetManagement;
 using Game.Infrastructure.Factories;
 using Game.Services.CoroutinePerformer;
+using Game.Services.Input;
 using Game.Services.Logger;
 using Game.Services.SceneLoader;
 using UnityEngine;
@@ -22,12 +23,14 @@ namespace Game.Infrastructure.Installers
             BindServices();
             BindFactories();
             BindSceneLoader();
+            BindInput();
         }
 
         private void BindAssetProvider()
         {
             Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle().NonLazy();
         }
+
         private void BindServices()
         {
             Container.Bind<ILoggerService>().To<LoggerService>().AsSingle().NonLazy();
@@ -42,6 +45,11 @@ namespace Game.Infrastructure.Installers
         private void BindSceneLoader()
         {
             Container.Bind<ISceneLoader>().To<AsyncSceneLoader>().AsSingle();
+        }
+
+        private void BindInput()
+        {
+            Container.BindInterfacesAndSelfTo<InputService>().AsSingle().NonLazy();
         }
     }
 }
