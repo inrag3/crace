@@ -7,7 +7,16 @@ namespace Game.Services.Logger
         public void Log(string message, object sender = null)
         {
             sender ??= this;
-            Debug.Log($"<b><i>{sender.GetType().Name}:</i></b> {message}");
+            Debug.Log(Decorate(message, sender));
         }
+
+        public void Error(string message, object sender = null)
+        {
+            sender ??= this;
+            Debug.LogError(Decorate(message, sender));
+        }
+
+        private string Decorate(string message, object sender) => 
+            $"<b><i>{sender.GetType().Name}:</i></b> {message}";
     }
 }
