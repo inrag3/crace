@@ -15,8 +15,8 @@ namespace Game.Infrastructure.AssetManagement
         private readonly IDictionary<string, AsyncOperationHandle> _cache =
             new Dictionary<string, AsyncOperationHandle>();
 
-        private readonly IList<AsyncOperationHandle> _handles =
-            new List<AsyncOperationHandle>();
+        private readonly IDictionary<string, List<AsyncOperationHandle>> _handles = 
+            new Dictionary<string, List<AsyncOperationHandle>>();
 
         private readonly ILoggerService _logger;
 
@@ -41,8 +41,27 @@ namespace Game.Infrastructure.AssetManagement
             {
                 _cache[key] = asyncOperationHandle;
             };
-            _handles.Add(handle);
+
+            if (!_handles.TryGetValue(key, out var handles))
+            {
+                handles = new List<AsyncOperationHandle>();
+                _handles[key] = handles;
+            }
+            handles.Add(handle);
+            
             return await handle.Task;
+        }
+
+        public void Release(string key)
+        {
+            if (!_handles.ContainsKey(key))
+                return;
+            
+            foreach (var handle in _handles[key])
+                Addressables.Release(handle);
+            
+            _cache.Remove(key);
+            _handles.Remove(key);
         }
 
         public async Task<SceneInstance> LoadScene(Scene name)
