@@ -28,7 +28,8 @@ namespace Zenject
             {
                 // Note that we use zero for unspecified priority
                 // This is nice because you can use negative or positive for before/after unspecified
-                var match = priorities.Where(x => disposable.GetType().DerivesFromOrEqual(x.First)).Select(x => (int?)x.Second).SingleOrDefault();
+                var match = priorities.Where(x => disposable.GetType().DerivesFromOrEqual(x.First))
+                    .Select(x => (int?)x.Second).SingleOrDefault();
                 int priority = match.HasValue ? match.Value : 0;
 
                 _disposables.Add(new DisposableInfo(disposable, priority));
@@ -36,7 +37,8 @@ namespace Zenject
 
             foreach (var lateDisposable in lateDisposables)
             {
-                var match = latePriorities.Where(x => lateDisposable.GetType().DerivesFromOrEqual(x.First)).Select(x => (int?)x.Second).SingleOrDefault();
+                var match = latePriorities.Where(x => lateDisposable.GetType().DerivesFromOrEqual(x.First))
+                    .Select(x => (int?)x.Second).SingleOrDefault();
                 int priority = match.HasValue ? match.Value : 0;
 
                 _lateDisposables.Add(new LateDisposableInfo(lateDisposable, priority));
@@ -95,7 +97,8 @@ namespace Zenject
                 catch (Exception e)
                 {
                     throw Assert.CreateException(
-                        e, "Error occurred while late disposing ILateDisposable with type '{0}'", disposable.LateDisposable.GetType());
+                        e, "Error occurred while late disposing ILateDisposable with type '{0}'",
+                        disposable.LateDisposable.GetType());
                 }
             }
         }
@@ -124,7 +127,8 @@ namespace Zenject
                 catch (Exception e)
                 {
                     throw Assert.CreateException(
-                        e, "Error occurred while disposing IDisposable with type '{0}'", disposable.Disposable.GetType());
+                        e, "Error occurred while disposing IDisposable with type '{0}'",
+                        disposable.Disposable.GetType());
                 }
             }
         }
