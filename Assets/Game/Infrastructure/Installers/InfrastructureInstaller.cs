@@ -1,5 +1,9 @@
 ﻿using Game.Infrastructure.AssetManagement;
 using Game.Infrastructure.Factories;
+using Game.Infrastructure.Factories.Drivers;
+using Game.Infrastructure.Factories.Engines;
+using Game.Infrastructure.Factories.Gearboxes;
+using Game.Infrastructure.Factories.Vehicles;
 using Game.Services.CoroutinePerformer;
 using Game.Services.Input;
 using Game.Services.Logger;
@@ -19,20 +23,16 @@ namespace Game.Infrastructure.Installers
 
         public override void InstallBindings()
         {
-            BindAssetProvider();
             BindServices();
             BindFactories();
-            BindSceneLoader();
             BindInput();
+            BindDisposer();
         }
-
-        private void BindAssetProvider()
-        {
-            Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle().NonLazy();
-        }
-
+        
         private void BindServices()
         {
+            Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle().NonLazy();
+            Container.Bind<ISceneLoader>().To<AsyncSceneLoader>().AsSingle();
             Container.Bind<ILoggerService>().To<LoggerService>().AsSingle().NonLazy();
             Container.Bind<ICoroutinePerformer>().FromInstance(_coroutinePerformer).AsSingle().NonLazy();
         }
@@ -40,16 +40,20 @@ namespace Game.Infrastructure.Installers
         private void BindFactories()
         {
             Container.Bind<StateFactory>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<VehicleFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DriverFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EngineFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GearboxFactory>().AsSingle();
         }
-
-        private void BindSceneLoader()
-        {
-            Container.Bind<ISceneLoader>().To<AsyncSceneLoader>().AsSingle();
-        }
-
+        
         private void BindInput()
         {
             Container.BindInterfacesAndSelfTo<InputService>().AsSingle().NonLazy();
+        }
+
+        private void BindDisposer()
+        {
+            Container.BindInterfacesTo<Disposer.Disposer>().AsSingle().NonLazy();
         }
     }
 }

@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8cd83a509c40948403b2d335dde82d, type: 3}
+  m_Name: SteeringConfig
+  m_EditorClassIdentifier: 
+  <MaxSteerAngle>k__BackingField: 60
+  <SteerLimitCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.023652188
+      outSlope: -0.023652188
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.046814047
+    - serializedVersion: 3
+      time: 100
+      value: 0.2
+      inSlope: -0.00019742864
+      outSlope: -0.00019742864
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.084415585
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <EnableSteerLimit>k__BackingField: 1
+  <SteerChangeSpeedToVelocity>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 100
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 30
+      value: 120
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15538813
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <SteerChangeSpeedFromVelocity>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 100
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 30
+      value: 80
+      inSlope: -1.7534881
+      outSlope: -1.7534881
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.062418748
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <MaxVelocityAngleForHelp>k__BackingField: 120
+  <MinSpeedForHelp>k__BackingField: 1.5
+  <HelpDriftIntensity>k__BackingField: 0
+  <HandBrakeAngularHelpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: -0.009999994
+      outSlope: -0.009999994
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.071428575
+    - serializedVersion: 3
+      time: 0.1
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.07672301
+    - serializedVersion: 3
+      time: 2
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0721501
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <DriftResistanceCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.5
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0
+      value: 10
+      inSlope: 0.00000009241946
+      outSlope: 0.00000009241946
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.12595654
+    - serializedVersion: 3
+      time: 6
+      value: 50
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <MaxSpeedForMaxAngularHelp>k__BackingField: 20
+  <DriftLimitAngle>k__BackingField: 0
+  <ABS>k__BackingField: 1
+  <TCS>k__BackingField: 1

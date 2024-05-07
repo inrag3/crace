@@ -24,17 +24,44 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     ""name"": ""Controls"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""Driver"",
             ""id"": ""b559fd12-588e-48d0-b869-aedd78acd140"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Acceleration"",
                     ""type"": ""Value"",
-                    ""id"": ""a4dc1a14-9d89-438e-8f82-8609881ec8ba"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""133867d6-36c3-405b-a731-f965bd90c4ae"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Braking"",
+                    ""type"": ""Value"",
+                    ""id"": ""e15af14c-2dfa-4a6c-a993-899c5a609817"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Steering"",
+                    ""type"": ""Value"",
+                    ""id"": ""71f0c027-8bd7-4bb0-a85f-31b11f125271"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HandBrake"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9106653-5015-4615-8193-ef5b0d5e2375"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""View"",
@@ -46,9 +73,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Brake"",
+                    ""name"": ""NextGear"",
                     ""type"": ""Button"",
-                    ""id"": ""1cae6da0-ded9-438e-a36a-e64997ae2cb5"",
+                    ""id"": ""64efad1f-64e4-4f35-a93e-e4874c5f9ce2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreviousGear"",
+                    ""type"": ""Button"",
+                    ""id"": ""937d1dda-9b91-4ae5-b00c-d8ce8b31ce0b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -58,69 +94,47 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""87a000d0-dbdb-4b43-a84d-27b7c8656886"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Keyboard"",
-                    ""id"": ""50c1ec78-d6fa-4190-a44d-69dca11923ea"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""c6437b23-b9cf-4363-804a-ec272253fc72"",
+                    ""id"": ""75528173-8fa4-4dac-96fc-1380780d0b68"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Acceleration"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""e18f6226-e70f-4403-b4fb-97d24b01d695"",
+                    ""name"": """",
+                    ""id"": ""3c925bc5-6029-462e-9ab0-e469e58b0507"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Acceleration"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90b1bb3a-3797-458a-b185-8cf5f1343a51"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Braking"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""aadaad69-88dc-414d-b306-af7dc147dea6"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""name"": """",
+                    ""id"": ""c5e2a916-dc10-4ddb-a282-6483413ad6da"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Move"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Braking"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""fc1d1275-1fb9-4f28-a29b-9cf00f3ed9da"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -146,23 +160,111 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6367867e-5e21-484d-b18e-cd7b4180373b"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""id"": ""1527e12a-01ad-4637-be9a-3b6f494c289b"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Brake"",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""b7bcc452-60b7-4eb7-bab6-b8c55b87f953"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steering"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""6fd3f6c0-6b2a-4876-8169-4a99c69e1848"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""b68d1194-f4e5-4c36-9e56-6040bed57950"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Steering"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92eaa18e-73c3-4fdd-93b3-421755068ea4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""HandBrake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7c9610a2-3720-48ed-8ae2-c9559f7ab15e"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""id"": ""60a05f37-4bcc-483e-88a9-62fadd91953f"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""HandBrake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c6bf3c9b-50e9-405b-85b5-71cdb8754797"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Brake"",
+                    ""action"": ""PreviousGear"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b528382-d7d0-4c2b-8af3-fbf0bea124b2"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PreviousGear"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c02e296-0124-431c-bf83-4469a1b7f9fe"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""NextGear"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3dce630f-985a-4f49-95c7-c00ee65997f3"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""NextGear"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -194,11 +296,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_View = m_Player.FindAction("View", throwIfNotFound: true);
-        m_Player_Brake = m_Player.FindAction("Brake", throwIfNotFound: true);
+        // Driver
+        m_Driver = asset.FindActionMap("Driver", throwIfNotFound: true);
+        m_Driver_Acceleration = m_Driver.FindAction("Acceleration", throwIfNotFound: true);
+        m_Driver_Braking = m_Driver.FindAction("Braking", throwIfNotFound: true);
+        m_Driver_Steering = m_Driver.FindAction("Steering", throwIfNotFound: true);
+        m_Driver_HandBrake = m_Driver.FindAction("HandBrake", throwIfNotFound: true);
+        m_Driver_View = m_Driver.FindAction("View", throwIfNotFound: true);
+        m_Driver_NextGear = m_Driver.FindAction("NextGear", throwIfNotFound: true);
+        m_Driver_PreviousGear = m_Driver.FindAction("PreviousGear", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -257,67 +363,99 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_View;
-    private readonly InputAction m_Player_Brake;
-    public struct PlayerActions
+    // Driver
+    private readonly InputActionMap m_Driver;
+    private List<IDriverActions> m_DriverActionsCallbackInterfaces = new List<IDriverActions>();
+    private readonly InputAction m_Driver_Acceleration;
+    private readonly InputAction m_Driver_Braking;
+    private readonly InputAction m_Driver_Steering;
+    private readonly InputAction m_Driver_HandBrake;
+    private readonly InputAction m_Driver_View;
+    private readonly InputAction m_Driver_NextGear;
+    private readonly InputAction m_Driver_PreviousGear;
+    public struct DriverActions
     {
         private @Controls m_Wrapper;
-        public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @View => m_Wrapper.m_Player_View;
-        public InputAction @Brake => m_Wrapper.m_Player_Brake;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public DriverActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Acceleration => m_Wrapper.m_Driver_Acceleration;
+        public InputAction @Braking => m_Wrapper.m_Driver_Braking;
+        public InputAction @Steering => m_Wrapper.m_Driver_Steering;
+        public InputAction @HandBrake => m_Wrapper.m_Driver_HandBrake;
+        public InputAction @View => m_Wrapper.m_Driver_View;
+        public InputAction @NextGear => m_Wrapper.m_Driver_NextGear;
+        public InputAction @PreviousGear => m_Wrapper.m_Driver_PreviousGear;
+        public InputActionMap Get() { return m_Wrapper.m_Driver; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(DriverActions set) { return set.Get(); }
+        public void AddCallbacks(IDriverActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
+            if (instance == null || m_Wrapper.m_DriverActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DriverActionsCallbackInterfaces.Add(instance);
+            @Acceleration.started += instance.OnAcceleration;
+            @Acceleration.performed += instance.OnAcceleration;
+            @Acceleration.canceled += instance.OnAcceleration;
+            @Braking.started += instance.OnBraking;
+            @Braking.performed += instance.OnBraking;
+            @Braking.canceled += instance.OnBraking;
+            @Steering.started += instance.OnSteering;
+            @Steering.performed += instance.OnSteering;
+            @Steering.canceled += instance.OnSteering;
+            @HandBrake.started += instance.OnHandBrake;
+            @HandBrake.performed += instance.OnHandBrake;
+            @HandBrake.canceled += instance.OnHandBrake;
             @View.started += instance.OnView;
             @View.performed += instance.OnView;
             @View.canceled += instance.OnView;
-            @Brake.started += instance.OnBrake;
-            @Brake.performed += instance.OnBrake;
-            @Brake.canceled += instance.OnBrake;
+            @NextGear.started += instance.OnNextGear;
+            @NextGear.performed += instance.OnNextGear;
+            @NextGear.canceled += instance.OnNextGear;
+            @PreviousGear.started += instance.OnPreviousGear;
+            @PreviousGear.performed += instance.OnPreviousGear;
+            @PreviousGear.canceled += instance.OnPreviousGear;
         }
 
-        private void UnregisterCallbacks(IPlayerActions instance)
+        private void UnregisterCallbacks(IDriverActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
+            @Acceleration.started -= instance.OnAcceleration;
+            @Acceleration.performed -= instance.OnAcceleration;
+            @Acceleration.canceled -= instance.OnAcceleration;
+            @Braking.started -= instance.OnBraking;
+            @Braking.performed -= instance.OnBraking;
+            @Braking.canceled -= instance.OnBraking;
+            @Steering.started -= instance.OnSteering;
+            @Steering.performed -= instance.OnSteering;
+            @Steering.canceled -= instance.OnSteering;
+            @HandBrake.started -= instance.OnHandBrake;
+            @HandBrake.performed -= instance.OnHandBrake;
+            @HandBrake.canceled -= instance.OnHandBrake;
             @View.started -= instance.OnView;
             @View.performed -= instance.OnView;
             @View.canceled -= instance.OnView;
-            @Brake.started -= instance.OnBrake;
-            @Brake.performed -= instance.OnBrake;
-            @Brake.canceled -= instance.OnBrake;
+            @NextGear.started -= instance.OnNextGear;
+            @NextGear.performed -= instance.OnNextGear;
+            @NextGear.canceled -= instance.OnNextGear;
+            @PreviousGear.started -= instance.OnPreviousGear;
+            @PreviousGear.performed -= instance.OnPreviousGear;
+            @PreviousGear.canceled -= instance.OnPreviousGear;
         }
 
-        public void RemoveCallbacks(IPlayerActions instance)
+        public void RemoveCallbacks(IDriverActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_DriverActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerActions instance)
+        public void SetCallbacks(IDriverActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_DriverActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_DriverActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public DriverActions @Driver => new DriverActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -336,10 +474,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_KeyboardSchemeIndex];
         }
     }
-    public interface IPlayerActions
+    public interface IDriverActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnAcceleration(InputAction.CallbackContext context);
+        void OnBraking(InputAction.CallbackContext context);
+        void OnSteering(InputAction.CallbackContext context);
+        void OnHandBrake(InputAction.CallbackContext context);
         void OnView(InputAction.CallbackContext context);
-        void OnBrake(InputAction.CallbackContext context);
+        void OnNextGear(InputAction.CallbackContext context);
+        void OnPreviousGear(InputAction.CallbackContext context);
     }
 }

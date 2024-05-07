@@ -5,11 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Game/Scenes/Bootstrap.unity
+  - enabled: 0
+    path: Assets/Game/Scenes/0.Bootstrap.unity
     guid: 9b55f824f8ae9db489b7fac010269d9d
   - enabled: 0
-    path: Assets/Game/Scenes/Core.unity
-    guid: b18f04358e27dca408da0d9822264397
+    path: Assets/Game/Scenes/1.Meta.unity
+    guid: b6d9d29696d508f4cb0d393780bbe1b9
+  - enabled: 0
+    path: Assets/Game/Scenes/2.Core.unity
+    guid: 1f77e1c2a2a9313498f4a81c4106fef3
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 67a5ab7074c3797448d24b1b00097e46, type: 2}

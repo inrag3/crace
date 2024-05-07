@@ -10,6 +10,7 @@ namespace Game.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle().NonLazy();
             
             Container.Bind<BootstrapState>().AsSingle().NonLazy();
+            Container.Bind<MetaState>().AsSingle().NonLazy();
             Container.Bind<LoadLevelState>().AsSingle().NonLazy();
             Container.Bind<GameloopState>().AsSingle().NonLazy();
         }

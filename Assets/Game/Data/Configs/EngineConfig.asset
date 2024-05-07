@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d66ce330035423ea9303c62c84f768f, type: 3}
+  m_Name: EngineConfig
+  m_EditorClassIdentifier: 
+  <MaxTorque>k__BackingField: 650
+  <TorqueCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.1291666
+      value: 0.75234985
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.9708252
+      value: 0.7264137
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <RevolutionsPerMinute>k__BackingField:
+    <Min>k__BackingField: 700
+    <Max>k__BackingField: 7000
+  <Delay>k__BackingField: 0.5
+  <RPMEngineToRPMWheelsFast>k__BackingField: 8
+  <RPMEngineToRPMWheelsSlow>k__BackingField: 3
+  <CutOffRPM>k__BackingField: 6600
+  <TargetCutOffRPM>k__BackingField: 6000
+  <CutOffTime>k__BackingField: 0.05
+  <RPMToNextGear>k__BackingField: 6400
+  <RPMToPrevGearDiff>k__BackingField: 500

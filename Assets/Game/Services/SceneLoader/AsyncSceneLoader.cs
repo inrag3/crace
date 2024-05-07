@@ -13,7 +13,7 @@ namespace Game.Services.SceneLoader
         {
             _sceneProvider = sceneProvider;
         }
-        
+
         public async Task<SceneInstance> Load(Scene name, Action onLoaded = null)
         {
            var scene = await _sceneProvider.LoadScene(name);
