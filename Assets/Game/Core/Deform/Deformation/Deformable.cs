@@ -1,9 +1,8 @@
 using System;
-using Deformation;
-using Detector;
+using Game.Core.Deform.Detector;
 using UnityEngine;
 
-namespace Deformation
+namespace Game.Core.Deform.Deformation
 {
     [RequireComponent(typeof(MeshFilter), typeof(Detector.Detector))]
     [DisallowMultipleComponent]

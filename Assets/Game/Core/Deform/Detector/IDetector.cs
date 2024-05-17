@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
 
-namespace Detector
+namespace Game.Core.Deform.Detector
 {
     public interface IDetector<out T>
     {

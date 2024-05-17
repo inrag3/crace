@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
-using Settings;
+using Game.Core.Deform.Settings;
 using UnityEngine;
 
-namespace Deformation
+namespace Game.Core.Deform.Deformation
 {
     public class Updater
     {

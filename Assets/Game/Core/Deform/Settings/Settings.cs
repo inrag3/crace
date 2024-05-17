@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Settings
+namespace Game.Core.Deform.Settings
 {
     [CreateAssetMenu(fileName = "Settings", menuName = "ScriptableObjects/Settings")]
     public class Settings : ScriptableObject, ISettings

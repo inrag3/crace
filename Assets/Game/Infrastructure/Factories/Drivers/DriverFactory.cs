@@ -1,5 +1,5 @@
-﻿using Game.Core.Drivers;
-using Game.Core.Vehicle;
+﻿using Game.Core.VehicleSystem.Drivers;
+using Game.Core.VehicleSystem.Vehicle;
 using Zenject;
 
 namespace Game.Infrastructure.Factories.Drivers

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Deformation
+namespace Game.Core.Deform.Deformation.Damager
 {
     internal interface IChanger : IInitializable<IEnumerable<IDeformable>>
     {

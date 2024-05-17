@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
-using Game.Core.Configs;
-using Game.Core.Engines;
-using Game.Core.Gearboxes;
-using Game.Core.Wheels;
+using Game.Core.VehicleSystem.Configs;
+using Game.Core.VehicleSystem.Engines;
+using Game.Core.VehicleSystem.Gearboxes;
+using Game.Core.VehicleSystem.Wheels;
+using PG;
 
 namespace Game.Infrastructure.Factories.Engines
 {
     public interface IEngineFactory
     {
-        public Engine Create(IReadOnlyList<IWheel> wheels, IGearbox gearbox, EngineConfig config);
+        public Engine Create(IWheel[] wheels, IGearbox gearbox, EngineConfig config);
     }
 }

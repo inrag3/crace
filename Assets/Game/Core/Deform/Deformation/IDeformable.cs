@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Deformation
+namespace Game.Core.Deform.Deformation
 {
     public interface IDeformable
     {

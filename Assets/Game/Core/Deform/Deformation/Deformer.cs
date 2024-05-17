@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 
-namespace Deformation
+namespace Game.Core.Deform.Deformation
 {
     [DisallowMultipleComponent]
     public class Deformer : MonoBehaviour
@@ -15,13 +13,13 @@ namespace Deformation
         private IList<IDeformable> _deformables = Array.Empty<IDeformable>();
         private ContactPoint _contactPoint;
         private MeshVertices[] _temporaryVertices;
-        private Damager _damager;
+        private Damager.Damager _damager;
         private Updater _updater;
         
         public void Awake()
         {
             _deformables = GetComponentsInChildren<IDeformable>();
-            _damager = GetComponent<Damager>();
+            _damager = GetComponent<Damager.Damager>();
             
             _filters = _deformables.Select(x => x.Filter).ToArray();
             _damager.Initialize(_filters, _settings);

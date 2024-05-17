@@ -1,23 +1,26 @@
 using System.Collections.Generic;
-using Deformation;
+using Game.Core.Deform.Deformation.Damager;
 using UnityEngine;
 
-public class Repairer : MonoBehaviour, IChanger
+namespace Game.Core.Deform.Deformation.Repairer
 {
-    private IEnumerable<IDeformable> _deformables;
-
-    public void Init(IEnumerable<IDeformable> deformables)
+    public class Repairer : MonoBehaviour, IChanger
     {
-        _deformables = deformables;
-    }
+        private IEnumerable<IDeformable> _deformables;
 
-    public void Change()
-    {
-        throw new System.NotImplementedException();
-    }
+        public void Init(IEnumerable<IDeformable> deformables)
+        {
+            _deformables = deformables;
+        }
 
-    public void Initialize(IEnumerable<IDeformable> value)
-    {
-        throw new System.NotImplementedException();
+        public void Change()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Initialize(IEnumerable<IDeformable> value)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

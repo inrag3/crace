@@ -1,59 +1,59 @@
-﻿
-using Deformation;
-using Unity.Collections;
+﻿using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 
-
-public class JobDamager : Damager
+namespace Game.Core.Deform.Deformation.Damager
 {
-    public override void Damage(ContactPoint contact, float impulse, MeshVertices[] temporaryVertices)
+    public class JobDamager : Damager
     {
-        var nativeVertices = new NativeArray<Vector3>[temporaryVertices.Length];
-        var results = new NativeArray<Vector3>[temporaryVertices.Length];
-
-        var transformMatrices = new Matrix4x4[temporaryVertices.Length];
-        for (var i = 0; i < temporaryVertices.Length; i++)
+        public override void Damage(ContactPoint contact, float impulse, MeshVertices[] temporaryVertices)
         {
-            transformMatrices[i] = _filters[i].transform.localToWorldMatrix;
-            nativeVertices[i] = new NativeArray<Vector3>(temporaryVertices[i].Vertices, Allocator.Persistent);
-        }
-        for (var i = 0; i < temporaryVertices.Length; i++)
-        {
-            results[i] = new NativeArray<Vector3>(temporaryVertices[i].Vertices.Length, Allocator.Persistent);
-        }
+            var nativeVertices = new NativeArray<Vector3>[temporaryVertices.Length];
+            var results = new NativeArray<Vector3>[temporaryVertices.Length];
 
-        var damageJobHandles = new NativeArray<JobHandle>(temporaryVertices.Length, Allocator.Temp);
-
-        for (var i = 0; i < temporaryVertices.Length; i++)
-        {
-            var job = new DamageJob
+            var transformMatrices = new Matrix4x4[temporaryVertices.Length];
+            for (var i = 0; i < temporaryVertices.Length; i++)
             {
-                TransformMatrix = transformMatrices[i],
-                Vertices = nativeVertices[i],
-                Impulse = impulse,
-                Radius = _settings.Radius,
-                Multiplier = _settings.Multiplier,
-                Results = results[i],
-                Contact = contact,
-            };
+                transformMatrices[i] = _filters[i].transform.localToWorldMatrix;
+                nativeVertices[i] = new NativeArray<Vector3>(temporaryVertices[i].Vertices, Allocator.Persistent);
+            }
+            for (var i = 0; i < temporaryVertices.Length; i++)
+            {
+                results[i] = new NativeArray<Vector3>(temporaryVertices[i].Vertices.Length, Allocator.Persistent);
+            }
 
-            damageJobHandles[i] = job.Schedule();
-        }
+            var damageJobHandles = new NativeArray<JobHandle>(temporaryVertices.Length, Allocator.Temp);
 
-        JobHandle.CompleteAll(damageJobHandles);
+            for (var i = 0; i < temporaryVertices.Length; i++)
+            {
+                var job = new DamageJob
+                {
+                    TransformMatrix = transformMatrices[i],
+                    Vertices = nativeVertices[i],
+                    Impulse = impulse,
+                    Radius = _settings.Radius,
+                    Multiplier = _settings.Multiplier,
+                    Results = results[i],
+                    Contact = contact,
+                };
 
-        for (var i = 0; i < temporaryVertices.Length; i++)
-        {
-            temporaryVertices[i].Vertices = results[i].ToArray();
-        }
+                damageJobHandles[i] = job.Schedule();
+            }
 
-        for (var i = 0; i < nativeVertices.Length; i++)
-        {
-            nativeVertices[i].Dispose();
-            results[i].Dispose();
-        }
+            JobHandle.CompleteAll(damageJobHandles);
+
+            for (var i = 0; i < temporaryVertices.Length; i++)
+            {
+                temporaryVertices[i].Vertices = results[i].ToArray();
+            }
+
+            for (var i = 0; i < nativeVertices.Length; i++)
+            {
+                nativeVertices[i].Dispose();
+                results[i].Dispose();
+            }
         
-        damageJobHandles.Dispose();
+            damageJobHandles.Dispose();
+        }
     }
 }

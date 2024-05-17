@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Deformation
+namespace Game.Core.Deform.Deformation
 {
     public struct MeshVertices
     {

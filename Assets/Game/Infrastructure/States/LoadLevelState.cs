@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Game.Core.Drivers;
+using Game.Core.VehicleSystem.Drivers;
 using Game.Infrastructure.Disposer;
 using Game.Infrastructure.Factories.Drivers;
 using Game.Infrastructure.Factories.Vehicles;
@@ -45,15 +45,27 @@ namespace Game.Infrastructure.States
         {
             _vehicleFactory.CreateRoot();
             await CreateVehicle<Human>();
+            for (int i = 0; i < 5; i++)
+            {
+                await CreateBotVehicle<Human>();
+            }
             _stateMachine.Enter<GameloopState>();
         }
 
         private async Task CreateVehicle<T>() where T : Driver
         {
-            // var vehicle = await _vehicleFactory.Create();
-            // var driver =_driverFactory.Create<T>(vehicle);
-            // driver.Initialize();
-            // _disposer.Add<Scene>(driver);
+            var vehicle = await _vehicleFactory.Create();
+            var driver =_driverFactory.Create<T>(vehicle);
+            driver.Initialize();
+            _disposer.Add<Scene>(driver);
+        }
+        
+        private async Task CreateBotVehicle<T>() where T : Driver
+        {
+            var vehicle = await _vehicleFactory.CreateBot();
+            var driver =_driverFactory.Create<T>(vehicle);
+            driver.Initialize();
+            _disposer.Add<Scene>(driver);
         }
     }
 }

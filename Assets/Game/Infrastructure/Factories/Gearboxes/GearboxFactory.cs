@@ -1,6 +1,6 @@
-using Game.Core.Configs;
-using Game.Core.Gearboxes;
+using Game.Core.VehicleSystem.Gearboxes;
 using Zenject;
+using GearboxConfig = Game.Core.VehicleSystem.Configs.GearboxConfig;
 
 namespace Game.Infrastructure.Factories.Gearboxes
 {
@@ -12,6 +12,7 @@ namespace Game.Infrastructure.Factories.Gearboxes
         {
             _container = container;
         }
+        
         public IGearbox Create(GearboxConfig config)
         {
             return _container.Instantiate<Gearbox>(new[] { config });

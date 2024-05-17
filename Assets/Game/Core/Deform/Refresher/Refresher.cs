@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Refresher
+namespace Game.Core.Deform.Refresher
 {
     [RequireComponent(typeof(MeshCollider), typeof(MeshFilter))]
     public abstract class Refresher : MonoBehaviour

@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
-using Game.Core.Vehicle;
+using Game.Core.AI;
+using Game.Core.VehicleSystem.Vehicle;
 using Game.Infrastructure.AssetManagement;
 using Game.Infrastructure.States;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Game.Infrastructure.Factories.Vehicles
     public class VehicleFactory : IVehicleFactory
     {
         private const string VEHICLE = "Vehicle";
+        private const string BOT = "Bot";
         private readonly IAssetProvider _assetProvider;
         private readonly DiContainer _container;
         private Transform _parent;
@@ -30,6 +32,12 @@ namespace Game.Infrastructure.Factories.Vehicles
         public async Task<IVehicle> Create()
         {
             var prefab = await _assetProvider.Load<GameObject>(key: VEHICLE);
+            return _container.InstantiatePrefabForComponent<IVehicle>(prefab, Vector3.up, Quaternion.identity, _parent);
+        }
+
+        public async Task<IVehicle> CreateBot()
+        {
+            var prefab = await _assetProvider.Load<GameObject>(key: BOT);
             return _container.InstantiatePrefabForComponent<IVehicle>(prefab, Vector3.up, Quaternion.identity, _parent);
         }
 

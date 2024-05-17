@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Refresher
+namespace Game.Core.Deform.Refresher
 {
     [DisallowMultipleComponent]
     public class DelayRefresher : Refresher

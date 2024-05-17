@@ -1,4 +1,4 @@
-﻿namespace Settings
+﻿namespace Game.Core.Deform.Settings
 {
     public interface ISettings: IDamagerSettings, IUpdaterSettings
     { 

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Detector
+namespace Game.Core.Deform.Detector
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(MeshCollider))]
